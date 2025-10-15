@@ -9,6 +9,8 @@ public class ShapeMain {
 		System.out.println(r.area());
 		Triangle t = new Triangle(3, 5);
 		System.out.println(t.area());
+		Square s = new Square(5);
+		System.out.println(s.area());
 	}
 
 }
