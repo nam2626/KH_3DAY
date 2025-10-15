@@ -13,6 +13,17 @@ public class Person {
 	//나이
 	private int age;
 	
+	//생성자(Constructor)
+	//	기본 생성자
+	public Person() {
+		//다른 생성자도 호출 가능
+		this("김철수",20);
+	}
+	public Person(String name, int age) {
+		this.name = name;
+		this.printInfo();
+	}
+	
 	//메서드
 	// 객체가 할일(우리가 시킬일)
 	public void printInfo() {
