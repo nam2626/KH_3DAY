@@ -26,7 +26,12 @@ public class Person {
 	
 	//메서드
 	// 객체가 할일(우리가 시킬일)
+	// 객체가 수행할 특정 기능 1개를 표현
+	// 메서드를 만들떄에는 반드시 하나의 기능만 담당하게끔 만듬
 	public void printInfo() {
 		System.out.println(name + " / " + age);
 	}
 }
+
+
+
