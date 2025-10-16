@@ -9,6 +9,7 @@ public class PersonMain {
 		System.out.println(p.hashCode());
 		System.out.println(s.hashCode());
 		
+		System.out.println(p.equals(s));
 		//내용은 같지만 메모리 주소가 달라서 false가 나온다
 		System.out.println(p);
 		System.out.println(s);
