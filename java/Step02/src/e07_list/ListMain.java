@@ -1,6 +1,7 @@
 package e07_list;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ListMain {
 	
@@ -44,8 +45,12 @@ public class ListMain {
 		System.out.println(list);
 		
 		//데이터 전체 조회 방법 - 1
-		
+		for (int i = 0; i < list.size();i++){
+			System.out.println(list.get(i));
+		}
+		System.out.println("------------");
 		//데이터 전체 조회 방법 - 2
+		list.stream().forEach(item -> System.out.println(item));
 		
 		//데이터 전체 조회 방법 - 3
 	}
