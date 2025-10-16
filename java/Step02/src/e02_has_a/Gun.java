@@ -12,7 +12,7 @@ import java.util.Date;
  * 
  */
 public class Gun {
-	private int bullet;
+	protected int bullet;
 
 	public Gun() {
 		bullet = 12;
