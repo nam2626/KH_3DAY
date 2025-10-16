@@ -1,5 +1,7 @@
 package e01_is_a;
 
+import java.util.Date;
+
 public class IsAMain {
 	public static void eat(Animal a) {
 		a.eat();
@@ -37,6 +39,7 @@ public class IsAMain {
 		eat(d);
 		eat(h);
 		System.out.println("프로그램 종료");
+		
 	}
 
 }

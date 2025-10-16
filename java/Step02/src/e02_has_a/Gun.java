@@ -1,4 +1,7 @@
 package e02_has_a;
+
+import java.util.Date;
+
 /*
  * 	총 클래스
  * 		필드 
