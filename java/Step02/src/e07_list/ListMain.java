@@ -16,9 +16,16 @@ public class ListMain {
 		arrayList.add(new Person("헝철수", 35));
 		arrayList.add(new Person("강명수", 44));
 		
+		System.out.println(arrayList);
+		
 		//데이터 삭제
+		arrayList.remove(5);
+		System.out.println(arrayList);
+		arrayList.remove(new Person("문규수", 32));
+		System.out.println(arrayList);
 		
 		//데이터가 저장된 개수
+		System.out.println("저장된 값의 개수 : "+arrayList.size());
 		
 		//데이터 교체
 		
