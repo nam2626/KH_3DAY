@@ -22,6 +22,8 @@ public class Person {
 	public String toString() {
 		return "Person [name=" + name + ", age=" + age + "]";
 	}
+
+
 	
 	/*
 	 * 	해시값 기반으로 사용되는 컬렉션에서 사용할 정수 값 제공하는 목적
@@ -55,6 +57,8 @@ public class Person {
 		}
 		return false;
 	}
+	
+	
 }
 
 
