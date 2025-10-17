@@ -51,8 +51,14 @@ public class ListMain {
 		System.out.println("------------");
 		//데이터 전체 조회 방법 - 2
 		list.stream().forEach(item -> System.out.println(item));
-		
+		System.out.println("------------");
+		list.parallelStream().forEach(item -> System.out.println(item));
+		System.out.println("------------");
 		//데이터 전체 조회 방법 - 3
+		Iterator<Person> it = list.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next());
+		}
 	}
 
 }
