@@ -1,14 +1,3 @@
--- CAR
--- 차량번호, 차량명, 제조사, 제조년도, 금액
--- 차량번호 --> A000000000
-CREATE TABLE CAR(
-    ID CHAR(10) PRIMARY KEY,
-    CNAME VARCHAR(50),
-    MAKER VARCHAR(50),
-    MYEAR NUMBER(4),
-    PRICE NUMBER(5)
-);
-
 INSERT INTO car (id, cname, maker, myear, price) VALUES ('q765948940', 'M5', 'BMW', 2009, 95747);
 INSERT INTO car (id, cname, maker, myear, price) VALUES ('i155714605', 'Z4', 'BMW', 2005, 43709);
 INSERT INTO car (id, cname, maker, myear, price) VALUES ('f425955481', 'Savana 2500', 'GMC', 2001, 48250);
