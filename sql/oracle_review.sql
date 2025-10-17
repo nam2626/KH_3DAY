@@ -61,6 +61,15 @@ FROM CAR;
 SELECT ID, CNAME, MAKER, RANK() OVER(PARTITION BY MAKER ORDER BY PRICE)
 FROM CAR;
 
+-- 옵션	설명
+-- 'U'	대문자 알파벳
+-- 'L'	소문자 알파벳
+-- 'A'	대/소문자 알파벳
+-- 'X'	대문자 알파벳 또는 숫자
+-- 'P'	출력 가능한 모든 문자 (특수문자 포함)
+
+SELECT DBMS_RANDOM.STRING('U', 1) || TO_CHAR(ROW_NUMBER() OVER(ORDER BY MAKER),'FM00'), MAKER 
+FROM (SELECT DISTINCT MAKER FROM CAR);
 
 
 
