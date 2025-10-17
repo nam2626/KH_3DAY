@@ -3,8 +3,9 @@ package jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
+//https://www.mockaroo.com - 샘플데이터
 public class JDBCTest1 {
 //	private static String DB_URL = "jdbc:oracle:thin:@localhost:1521/xe";
 	private static String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -20,11 +21,16 @@ public class JDBCTest1 {
 			System.out.println("DB 접속 완료");
 			//3. SQL 작성
 			//	PreparedStatement 
-			String sql = "select * from car";
+			String sql = "select * from car where price >= ?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, 80000);
 			//4. SQL 실행
-			
+			ResultSet rs = pstmt.executeQuery();
 			//5. 결과 확인
+			while(rs.next()) {
+				System.out.println(rs.getString("id") + " / " 
+							+ rs.getString("cname") + " / " + rs.getInt("price"));
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
