@@ -1,0 +1,11 @@
+{
+    "editor.fontSize": 28,
+    "files.autoSave": "onFocusChange",
+    "workbench.colorTheme": "Visual Studio Light",
+    "editor.tabSize": 2,
+    "editor.formatOnPaste": true,
+    "liveServer.settings.CustomBrowser": "chrome",
+    "liveServer.settings.host": "192.168.40.79",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+}
