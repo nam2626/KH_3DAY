@@ -69,6 +69,13 @@
         gap: 50px;
         margin-top: 20px;
       }
+      .sub_button_container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
       .main_button {
         width: 500px;
         height: 300px;
@@ -90,10 +97,42 @@
         padding: 5px;
         border-radius: 10px;
       }
+      .sub_button {
+        width: 240px;
+        height: 200px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 4px 0px #777676;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        font-size: 24px;
+        color: #000;
+        text-decoration: none;
+      }
+      .icon {
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+        background-image: url(/resource/img/css_sprites.png);
+      }
+      .icon_present {
+        background-position: -10px -158px;
+      }
+      .icon_sale {
+        background-position: -306px -10px;
+      }
+      .icon_ticket {
+        background-position: -110px -158px;
+      }
+      .icon_location {
+        background-position: -306px -110px;
+      }
       footer {
         background-color: #e9e9e9;
         padding: 10px 0px;
-        margin-top: 200px;
+        margin-top: 100px;
         min-width: 1200px;
       }
       footer ul {
@@ -124,6 +163,12 @@
       <article class="main_button_container">
         <a href="#" class="main_button"><img src="/resource/img/bike.png" alt="" />배달 주문</a>
         <a href="#" class="main_button"><img src="/resource/img/store.png" alt="" />포장 주문</a>
+      </article>
+      <article class="sub_button_container">
+        <a href="#" class="sub_button"><span class="icon icon_present"></span>이벤트</a>
+        <a href="#" class="sub_button"><span class="icon icon_sale"></span>제휴할인</a>
+        <a href="#" class="sub_button"><span class="icon icon_ticket"></span>티켓/쿠폰</a>
+        <a href="#" class="sub_button"><span class="icon icon_location"></span>매장찾기</a>
       </article>
     </section>
     <footer>
