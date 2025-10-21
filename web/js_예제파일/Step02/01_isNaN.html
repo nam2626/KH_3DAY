@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>isNaN</title>
+    <script>
+      //isNaN --> 너 숫자가 아니냐?
+      console.log(isNaN(100));
+      console.log(isNaN(-100));
+      console.log(isNaN(0));
+      console.log(isNaN('100'));
+      console.log(isNaN('0'));
+      console.log(isNaN('-100'));
+      console.log(isNaN('234AF'));
+      console.log(isNaN(true), Number(true), Number(false));
+      //너 숫자냐?
+      let a = '100';
+      console.log(!isNaN(a));
+    </script>
+  </head>
+  <body></body>
+</html>

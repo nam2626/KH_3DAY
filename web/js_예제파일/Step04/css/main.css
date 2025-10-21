@@ -1,0 +1,109 @@
+  /* CSS 스타일 시작 */
+        body {
+            background-color: #f8f9fa; /* 밝은 회색 배경 */
+            color: #212529;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .calendar-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .input-container input[type="number"] {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+            -moz-appearance: textfield; /* Firefox에서 화살표 제거 */
+        }
+        
+        .input-container input[type="number"]::-webkit-outer-spin-button,
+        .input-container input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none; /* Chrome, Safari 등에서 화살표 제거 */
+            margin: 0;
+        }
+
+        .input-container button {
+            padding: 12px 24px;
+            border: none;
+            background-color: #007bff; /* 밝고 산뜻한 파란색 */
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .input-container button:hover {
+            background-color: #0056b3; /* 호버 시 더 진한 파란색 */
+        }
+
+        #calendar h2 {
+            text-align: center;
+            color: #343a40;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        #calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+
+        #calendar th,
+        #calendar td {
+            text-align: center;
+            padding: 14px 8px;
+            border: 1px solid #f1f3f5; /* 매우 연한 회색 테두리 */
+        }
+
+        #calendar th {
+            background-color: #f8f9fa;
+            font-weight: 500;
+            color: #495057;
+        }
+        
+        /* 주말(헤더) 색상 */
+        #calendar th:first-child { color: #e63946; } /* 일요일 */
+        #calendar th:last-child { color: #1d3557; }  /* 토요일 */
+
+        /* 주말(날짜) 색상 */
+        #calendar td:first-child { color: #e63946; font-weight: 500; }
+        #calendar td:last-child { color: #1d3557; font-weight: 500; }
+
+        /* 현재 달에 속하지 않는 날짜 스타일 */
+        .other-month {
+            color: #adb5bd !important; /* 기존 주말 색상보다 우선 적용 */
+            background-color: #f8f9fa;
+        }
+        
+        /* 오늘 날짜 강조 스타일 추가 */
+        #calendar td.today {
+            background-color: #007bff;
+            color: #ffffff !important; /* !important를 사용해 주말 색상을 덮어쓰기 */
+            font-weight: 700;
+            border-radius: 50%; /* 원형으로 표시 */
+        }
+        /* CSS 스타일 끝 */

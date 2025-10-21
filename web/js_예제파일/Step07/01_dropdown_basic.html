@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>기본 드롭다운 메뉴</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f8fafc;
+        --text: #0f172a;
+        --panel: #ffffff;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --ring: #93c5fd;
+        --border: rgba(0,0,0,0.08);
+        --muted: #64748b;
+        --hover: #f1f5f9;
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell,
+          Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      main {
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .card {
+        width: 100%;
+        max-width: 640px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+      }
+      h1 { font-size: 20px; margin: 0 0 16px; }
+
+      .dropdown { position: relative; display: inline-block; }
+      .btn {
+        display: inline-flex; align-items: center; gap: 8px;
+        border: 0; border-radius: 8px; cursor: pointer;
+        background: var(--primary); color: #fff;
+        padding: 10px 16px; font-size: 14px;
+      }
+      .btn:hover { background: var(--primary-hover); }
+      .btn:focus { outline: 2px solid var(--ring); outline-offset: 2px; }
+      .icon { width: 16px; height: 16px; }
+
+      .menu {
+        position: absolute; right: 0; margin-top: 8px; width: 224px;
+        background: #fff; border: 1px solid var(--border); border-radius: 10px;
+        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+        padding: 6px 0;
+        transform-origin: top right;
+        opacity: 0; transform: scale(0.95);
+        visibility: hidden;
+        transition: opacity .15s ease, transform .15s ease, visibility .15s ease;
+      }
+      .menu.open { opacity: 1; transform: scale(1); visibility: visible; }
+      .menu a {
+        display: block; padding: 8px 12px; font-size: 14px; color: #111827; text-decoration: none;
+      }
+      .menu a:hover { background: var(--hover); }
+      .muted { margin-top: 16px; color: var(--muted); font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="card">
+          <h1>기본 드롭다운 메뉴</h1>
+
+          <div class="dropdown" id="dropdownRoot">
+            <button
+              id="dropdownButton"
+              type="button"
+              class="btn"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="dropdownMenu"
+            >
+              메뉴 열기
+              <svg class="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.12l3.71-3.89a.75.75 0 111.08 1.04l-4.25 4.46a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <div
+              id="dropdownMenu"
+              role="menu"
+              aria-labelledby="dropdownButton"
+              class="menu"
+            >
+              <div role="none">
+                <a href="#" role="menuitem" tabindex="-1">메뉴 1</a>
+                <a href="#" role="menuitem" tabindex="-1">메뉴 2</a>
+                <a href="#" role="menuitem" tabindex="-1">메뉴 3</a>
+              </div>
+            </div>
+          </div>
+
+          <p class="muted">
+            - 버튼 클릭으로 열고 닫을 수 있습니다.<br />
+            - 바깥 영역을 클릭하거나 ESC 키를 누르면 닫힙니다.<br />
+            - 화살표 아이콘은 상태를 시각적으로 표시합니다.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        const button = document.getElementById('dropdownButton');
+        const menu = document.getElementById('dropdownMenu');
+        const root = document.getElementById('dropdownRoot');
+
+        function openMenu() {
+          menu.classList.add('open');
+          button.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeMenu() {
+          menu.classList.remove('open');
+          button.setAttribute('aria-expanded', 'false');
+        }
+
+        function isOpen() {
+          return menu.classList.contains('open');
+        }
+
+        button.addEventListener('click', () => {
+          isOpen() ? closeMenu() : openMenu();
+        });
+
+        // 바깥 클릭 시 닫기
+        document.addEventListener('click', (e) => {
+          if (!root.contains(e.target)) {
+            closeMenu();
+          }
+        });
+
+        // 메뉴 항목 클릭 시 닫기 (기본 이동 막고 포커스 복귀)
+        menu.addEventListener('click', (e) => {
+          const item = e.target.closest('[role="menuitem"]');
+          if (item) {
+            e.preventDefault();
+            closeMenu();
+            button.focus();
+          }
+        });
+
+        // ESC로 닫기, 방향키로 첫 아이템 포커스
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            closeMenu();
+            button.focus();
+          }
+          if (e.key === 'ArrowDown' && document.activeElement === button) {
+            openMenu();
+            const firstItem = menu.querySelector('[role="menuitem"]');
+            if (firstItem) firstItem.focus();
+          }
+        });
+      })();
+    </script>
+  </body>
+  </html>
+
+

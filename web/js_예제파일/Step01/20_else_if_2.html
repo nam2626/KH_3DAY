@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if문</title>
+    <script>
+        /*
+            미세먼지 수치를 하나 랜덤으로 생성
+            데이터의 범위는 0~300
+            생성된 데이터가 
+            0~30 좋음 -> 좋음 출력할때는 글자색을 skyblue 색상
+            31~80 보통 -> 보통 출력할때는 글자색을 yellowgreen 색상
+            81~150 나쁨 -> 나쁨 출력할때는 글자색을 orange 색상
+            151~매우 나쁨 -> 매우 나쁨 출력할때는 글자색을 red 색상
+        */
+        let mise = Math.trunc(Math.random() * 301);
+
+       
+        document.write(`<p style="color:${color};">${msg}(${mise})</p>`);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
