@@ -28,6 +28,30 @@
         align-items: center;
         gap: 5px;
       }
+      .checkbox {
+        width: 20px;
+        height: 20px;
+        border: 2px solid black;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+      }
+      .check {
+        width: 18px;
+        height: 10px;
+        display: inline-block;
+        box-sizing: border-box;
+        transform: rotateZ(-45deg);
+        margin-bottom: 4px;
+      }
+      input:checked + label > .checkbox {
+        background-color: black;
+      }
+      input:checked + label > .checkbox > .check {
+        border-left: 2px solid white;
+        border-bottom: 2px solid white;
+      }
     </style>
   </head>
   <body>
@@ -35,5 +59,13 @@
     <label for="chk1"><span class="radio"></span>항목1</label>
     <input type="radio" name="items" id="chk2" />
     <label for="chk2"><span class="radio"></span>항목2</label>
+    <hr />
+    <input type="checkbox" id="chk3" />
+    <label for="chk3">
+      <span class="checkbox">
+        <span class="check"></span>
+      </span>
+      항목3
+    </label>
   </body>
 </html>
