@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      
+      window.onload = () => {
+        let btnLogin = document.querySelector('#btn');
+        console.log(btnLogin);
+        //버튼 클릭 했을때 경고창 띄우기
+        // 클릭 이벤트 onclick
+        btnLogin.onclick = () => {
+          //   alert('로그인 버튼 클릭');
+          //현재 입력된 아이디와 비밀번호를 경고창으로 띄움
+        };
+        document.querySelector('#cancel').addEventListener('click', function () {
+          alert('취소 버튼 클릭');
+        });
+      };
     </script>
-</head>
-<body>
-    <input type="text" id="id"><br>
-    <input type="password" id="pass"><br>
+  </head>
+  <body>
+    <input type="text" id="id" /><br />
+    <input type="password" id="pass" /><br />
     <button id="btn">로그인</button>
-</body>
+    <button id="cancel">취소</button>
+  </body>
 </html>
