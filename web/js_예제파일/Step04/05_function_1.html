@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>함수</title>
     <script>
-     
+      console.log(sum(10, 20));
+      /* 
+        함수를 선언해서 작성을 하면, 호이스팅으로 미리 메모리에 등록하는 작업이 이루어짐
+        그래서 함수 선언 순서와 상관없이 함수 호출이 가능함.
+        undefined : 값이 없다.
+        null : 데이터가 빈값이다.
+      */
+      function sum(a = 0, b) {
+        console.log(a, b, a + b);
+        return a + b;
+      }
+      console.log(sum(50));
     </script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>
