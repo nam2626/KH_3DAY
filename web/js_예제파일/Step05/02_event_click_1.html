@@ -13,10 +13,19 @@
         btnLogin.onclick = () => {
           //   alert('로그인 버튼 클릭');
           //현재 입력된 아이디와 비밀번호를 경고창으로 띄움
+          let id = document.querySelector('#id').value;
+          let pass = document.querySelector('#pass').value;
+          alert(`${id} / ${pass}`);
         };
-        document.querySelector('#cancel').addEventListener('click', function () {
+        const f1 = function () {
           alert('취소 버튼 클릭');
-        });
+        };
+        const f2 = function () {
+          alert('취소2 버튼 클릭');
+        };
+        document.querySelector('#cancel').addEventListener('click', f1);
+        document.querySelector('#cancel').addEventListener('click', f2);
+        document.querySelector('#cancel').removeEventListener('click', f1);
       };
     </script>
   </head>
