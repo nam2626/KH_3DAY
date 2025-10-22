@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>select element</title>
-    
+
     <style>
-        p{
-            background-color: red;
-        }
+      p {
+        background-color: red;
+      }
     </style>
-    
-</head> 
-<body>
-    <input type="text" id="txt" value="기본값"><button>검색</button>
-    <hr>
-    <input type="text" name="t1" value="A"><br>
-    <input type="text" name="t2" value="B" readonly><br>
-    <input type="text" name="t3" value="C"><br>
-    <input type="text" name="t4" value="D"><br>
+  </head>
+  <body>
+    <input type="text" id="txt" value="기본값" /><button>검색</button>
+    <hr />
+    <input type="text" name="t1" value="A" /><br />
+    <input type="text" name="t2" value="B" readonly /><br />
+    <input type="text" name="t3" value="C" /><br />
+    <input type="text" name="t4" value="D" /><br />
 
     <p>1</p>
     <p>2</p>
@@ -27,8 +26,41 @@
     <p>5</p>
     <h1>제목 태그</h1>
     <script>
-       
-    </script>
+      let txt = document.getElementById('txt'); //하나의 요소만 반환
+      console.log(txt);
+      //태그 선택 후 속성 값 접근 방법
+      console.log(txt.value, txt.type);
+      txt.type = 'password';
+      //document.getElementsByClassName('클래스 속성값'); --> 배열로 반환
+      //document.getElementsByTagName('태그명'); --> 배열로 반환
+      //document.getElementsByName('name 속성값'); --> 배열로 반환
 
-</body>
+      //선택자를 이용해서 태그 접근하는 방법
+      //document.querySelector('선택자'); <-- 한개만 선택(여러개가 있으면 첫번째로 선택된 것만 선택)
+      //document.querySelectorAll('선택자'); <-- 여러개 선택 가능(리스트로 반환)
+      txt = document.querySelector('input[name=t2]');
+      console.log(txt);
+      console.log(txt.readOnly);
+      txt.readOnly = false;
+      txt.style.backgroundColor = '#00F';
+
+      //input 태그 전부 선택
+      let input = document.querySelectorAll('input');
+      console.log(input);
+      console.log('---------------------------------');
+      input.forEach(function (tag, idx, arr) {
+        // console.log(tag, idx, arr);
+        tag.onclick = function () {
+          console.log(this);
+        };
+      });
+      console.log('---------------------------------');
+      input.forEach((tag, idx, arr) => {
+        // console.log(tag, idx, arr);
+        tag.onkeyup = () => {
+          console.log(this);
+        };
+      });
+    </script>
+  </body>
 </html>
