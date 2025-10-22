@@ -14,6 +14,16 @@
       sum(1, 2, 3, 4, 5, 6, 7);
       sum(1, 2, 3, 4, 5);
       sum();
+
+      //함수를 변선에 선언해서 저장하면 반드시 선언 후에 사용이 가능
+      //   console.log(r(5, 3));
+
+      //자바 스크립트에서는 함수도 객체로 관리, 변수에 저장이 가능
+      //변수명이 함수명이 됨
+      let r = function (a, b) {
+        return a + b;
+      };
+      console.log(r(5, 3));
     </script>
   </head>
   <body></body>
