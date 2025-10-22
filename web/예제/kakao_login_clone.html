@@ -75,6 +75,35 @@
         flex-flow: row nowrap;
         gap: 15px;
       }
+      .chk_check_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 26px;
+        height: 26px;
+        border: 1px solid gray;
+        border-radius: 14px;
+        box-sizing: border-box;
+      }
+      .chk_check_bar {
+        display: inline-block;
+        width: 17px;
+        height: 7px;
+        transform: rotateZ(-45deg) translate(1px, -2px);
+      }
+      #chk:checked + label > .chk_check_box {
+        background-color: #fee500;
+        border: none;
+      }
+      #chk:checked + label > .chk_check_box > .chk_check_bar {
+        border-left: 2px solid black;
+        border-bottom: 2px solid black;
+      }
+      #chk + label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
     </style>
   </head>
   <body>
@@ -84,7 +113,10 @@
       <input type="password" placeholder="비밀번호" />
       <div>
         <input type="checkbox" id="chk" style="display: none" />
-        <label for="chk"><span class="chk_check"></span>간편로그인 정보 저장 ⓘ</label>
+        <label for="chk">
+          <span class="chk_check_box"><span class="chk_check_bar"></span></span>
+          간편로그인 정보 저장 ⓘ
+        </label>
       </div>
       <button class="btn btn_login">로그인</button>
       <ul class="center_line">
