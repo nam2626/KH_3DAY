@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>event</title>
     <script>
-        window.onload = () => {
-          
-        }
+      window.onload = () => {
+        document.querySelector('#frm').onsubmit = (e) => {
+          alert('submit 이벤트 발생');
+          //태그에 기본적으로 셋팅된 이벤트 처리를 막는 함수
+          //e.preventDefault();
+          return false;
+        };
+        document.querySelector('a').onclick = (e) => {
+          //   e.preventDefault();
+          return false;
+        };
+      };
+      document.write(new Date().toLocaleString());
     </script>
-</head>
-<body>
-    <form action="" id="frm" method="post">
-        <input type="text" id="id" name="id"><br>
-        <input type="password" id="pass" name="pass"><br>
-        <button>로그인</button>
+  </head>
+  <body>
+    <hr />
+    <a href="https://www.naver.com">네이버 이동</a>
+    <form action="" id="frm" method="get">
+      <input type="text" id="id" name="id" /><br />
+      <input type="password" id="pass" name="pass" /><br />
+      <button>로그인</button>
     </form>
-</body>
+  </body>
 </html>
