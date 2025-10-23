@@ -1,14 +1,19 @@
 package com.kh.main;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.kh.config.DBManager;
 import com.kh.context.AppContext;
 import com.kh.vo.Greeting;
 import com.kh.vo.Person;
 
 public class TestMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		//AppContext.class를 이용해서 스프링 컨테이너 초기화
 		AnnotationConfigApplicationContext ctx 
 		= new AnnotationConfigApplicationContext(AppContext.class);
@@ -31,6 +36,19 @@ public class TestMain {
 		System.out.println(p2);
 		System.out.println(p1);
 		
+		DBManager manager = ctx.getBean("manager",DBManager.class);
+		
+		String sql = "select * from car where price >= ?";
+		PreparedStatement pstmt = manager.getConnection().prepareStatement(sql);
+		pstmt.setInt(1, 80000);
+		//4. SQL 실행
+		ResultSet rs = pstmt.executeQuery();
+		//5. 결과 확인
+		while(rs.next()) {
+			System.out.println(rs.getString("id") + " / " 
+						+ rs.getString("cname") + " / " + rs.getInt("price"));
+		}
+
 	}
 
 }

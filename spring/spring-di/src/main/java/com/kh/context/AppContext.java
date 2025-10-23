@@ -3,6 +3,7 @@ package com.kh.context;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.kh.config.DBManager;
 import com.kh.vo.Greeting;
 import com.kh.vo.Person;
 
@@ -21,6 +22,11 @@ public class AppContext {
 	@Bean
 	public Person person() {
 		return new Person("김철수", 30);
+	}
+	
+	@Bean
+	public DBManager manager() {
+		return new DBManager();
 	}
 }
 
