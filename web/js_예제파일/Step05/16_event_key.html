@@ -9,11 +9,30 @@
         let txt = document.querySelector('#txt');
         let area = document.querySelector('#area');
         let btn = document.querySelector('#btn');
+
+        //e -> 이벤트 객체
+        //     발생한 이벤트에 대한 정보를 담고 있음
+        txt.onkeydown = (e) => {
+          console.log('키보드 키 누름', e.keyCode);
+        };
+        txt.onkeypress = (e) => {
+          console.log('키보드 키 누르고 있음', e.keyCode);
+        };
+        txt.onkeyup = (e) => {
+          console.log('키보드 키 눌럿다 뗌', e.keyCode);
+        };
+        btn.onclick = () => {
+          //txt에 입력된 내용을 읽어옴
+          let content = `<h2>${txt.value}</h2>`;
+          area.innerHTML += content;
+          txt.value = '';
+          txt.focus();
+        };
       };
     </script>
   </head>
   <body>
-    <input type="text" id="txt" /><button id="btn">추가</button>
+    <input type="text" id="txt" autofocus /><button id="btn">추가</button>
     <div id="area"></div>
   </body>
 </html>
