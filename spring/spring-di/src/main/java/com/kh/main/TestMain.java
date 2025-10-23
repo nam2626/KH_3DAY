@@ -18,6 +18,7 @@ public class TestMain {
 		Greeting g2 = ctx.getBean("greeter",Greeting.class);
 		System.out.println(g2);
 		
+		System.out.println(g1 == g2);
 		System.out.println(g1.hashCode());
 		System.out.println(g2.hashCode());
 		
