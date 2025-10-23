@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.kh.vo.Greeting;
+import com.kh.vo.Person;
 
 //해당 클래스가 스프링 설정을 위한 설정 정보를 제공하는 클래스 
 @Configuration
@@ -15,6 +16,11 @@ public class AppContext {
 	public Greeting greeter() {
 		System.out.println("greeter()");
 		return new Greeting(1000, "홍길동");
+	}
+	
+	@Bean
+	public Person person() {
+		return new Person("김철수", 30);
 	}
 }
 
