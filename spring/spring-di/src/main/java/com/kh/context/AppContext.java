@@ -13,6 +13,7 @@ public class AppContext {
 	//Bean 아이디값은 메서드명으로 지정
 	@Bean
 	public Greeting greeter() {
+		System.out.println("greeter()");
 		return new Greeting(1000, "홍길동");
 	}
 }
