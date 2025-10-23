@@ -1,18 +1,117 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>드롭다운 메뉴</title>
     <style>
-   
-       
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      nav {
+        width: 1200px;
+        margin: 100px auto;
+        border: 1px solid orangered;
+      }
+      nav ul {
+        list-style-type: none;
+      }
+      #main_menu,
+      #sub_menu_container {
+        display: flex;
+        flex-flow: row nowrap;
+      }
+      #main_menu li,
+      .sub_menu {
+        width: calc(100% / 5);
+      }
+      nav a:link,
+      nav a:visited {
+        display: inline-block;
+        width: 100%;
+        border: 1px solid black;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+      }
+      #main_menu a:link,
+      #main_menu a:visited {
+        padding: 20px 0px;
+      }
+      .sub_menu a:link,
+      .sub_menu a:visited {
+        padding: 15px 0px;
+        color: purple;
+      }
+      #sub_menu_container {
+        height: 0px;
+        overflow: hidden;
+        transition: all 1s;
+      }
     </style>
     <script>
-    
+      window.onload = () => {
+        const subMenuHeight = document.querySelector('#sub_menu_container').scrollHeight;
+        console.log(subMenuHeight);
+        //메뉴 영역에 마우스가 올라가면 sub_menu_container의 세로 길이 값을 scrollHeight 값을 주고,
+        document.querySelector('nav').onmouseenter = () => {
+          document.querySelector('#sub_menu_container').style.height = subMenuHeight + 'px';
+        };
+        //메뉴 영역에 마우스가 벗어나면 sub_menu_container의 세로 길이 값을 0px로 지정
+        document.querySelector('nav').onmouseleave = () => {
+          document.querySelector('#sub_menu_container').style.height = '0px';
+        };
+      };
     </script>
-</head>
-<body>
- 
-</body>
+  </head>
+  <body>
+    <nav>
+      <ul id="main_menu">
+        <li><a href="">메뉴1</a></li>
+        <li><a href="">메뉴2</a></li>
+        <li><a href="">메뉴3</a></li>
+        <li><a href="">메뉴4</a></li>
+        <li><a href="">메뉴5</a></li>
+      </ul>
+      <div id="sub_menu_container">
+        <ul class="sub_menu">
+          <li><a href="">메뉴1-1</a></li>
+          <li><a href="">메뉴1-2</a></li>
+          <li><a href="">메뉴1-3</a></li>
+          <li><a href="">메뉴1-4</a></li>
+          <li><a href="">메뉴1-5</a></li>
+        </ul>
+        <ul class="sub_menu">
+          <li><a href="">메뉴2-1</a></li>
+          <li><a href="">메뉴2-2</a></li>
+          <li><a href="">메뉴2-3</a></li>
+          <li><a href="">메뉴2-4</a></li>
+          <li><a href="">메뉴2-5</a></li>
+        </ul>
+        <ul class="sub_menu">
+          <li><a href="">메뉴3-1</a></li>
+          <li><a href="">메뉴3-2</a></li>
+          <li><a href="">메뉴3-3</a></li>
+          <li><a href="">메뉴3-4</a></li>
+          <li><a href="">메뉴3-5</a></li>
+        </ul>
+        <ul class="sub_menu">
+          <li><a href="">메뉴4-1</a></li>
+          <li><a href="">메뉴4-2</a></li>
+          <li><a href="">메뉴4-3</a></li>
+          <li><a href="">메뉴4-4</a></li>
+          <li><a href="">메뉴4-5</a></li>
+        </ul>
+        <ul class="sub_menu">
+          <li><a href="">메뉴5-1</a></li>
+          <li><a href="">메뉴5-2</a></li>
+          <li><a href="">메뉴5-3</a></li>
+          <li><a href="">메뉴5-4</a></li>
+          <li><a href="">메뉴5-5</a></li>
+        </ul>
+      </div>
+    </nav>
+  </body>
 </html>
