@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ajax</title>
     <script>
-     window.onload = () => {
-       
-        }
-     
+      window.onload = () => {
+        document.querySelector('button').onclick = () => {
+          const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=23815d818a51ef76062d119292b5691e';
+
+          //1. fetch() 함수를 호출해서 요청(request)을 보냄
+          fetch(apiUrl)
+            //2. 첫번째 then() : 서버가 응답을 보내면 실행
+            //                  응답(response)에서 요청이 성공 했는지 체크
+            //                  응답 받은 데이터를 json 객체로 파싱.
+            .then((response) => {
+              //요청이 성공 했는지 확인
+              if (!response.ok) throw new Error(`HTTP오류, 상태 : ${response.status}`);
+              return response.json(); //응답 받은 문자열을 json 객체로 파싱
+            })
+            //3. 파싱된 json 데이터를 받아서 태그로 조립 후 원하는 태그에 출력
+            .then((data) => {
+              console.log('파싱된 데이터 :', data);
+              let tag = '';
+              //도시명
+              tag += `<p>${data.name}</p>`;
+              //현재 날씨
+              tag += `<p>${data.weather[0].main}</p>`;
+              //현재 온도
+              tag += `<p>${data.main.temp - 273.15}℃</p>`;
+              //바람 세기
+              tag += `<p>${data.wind.speed}m/s</p>`;
+
+              document.querySelector('.result').innerHTML = tag;
+            })
+            //4. 네트워크 오류나 호출과정에서 발생한 오류를 처리하는 부분
+            .catch((e) => {
+              console.error(e);
+            });
+        };
+      };
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <button>json 정보 요청하기</button>
     <div class="result"></div>
-</body>
+  </body>
 </html>
