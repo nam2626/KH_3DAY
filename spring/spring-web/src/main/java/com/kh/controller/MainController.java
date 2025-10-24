@@ -3,7 +3,7 @@ package com.kh.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import com.kh.SpringWebApplication;
 import com.kh.vo.PersonVO;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,6 +11,12 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
+
+    private final SpringWebApplication springWebApplication;
+
+    MainController(SpringWebApplication springWebApplication) {
+        this.springWebApplication = springWebApplication;
+    }
 
 	@GetMapping("/")
 	public String main() {
@@ -51,7 +57,29 @@ public class MainController {
 		
 		return "main";
 	}
+	
+	//뷰 이동 처리
+	@GetMapping("/person/insert")
+	public String personInsertView() {
+		return "person_insert";
+	}
+	
+	@PostMapping("/person/insert")
+	public String personInsert(PersonVO p) {
+//		System.out.println(name + " / " + age);
+		System.out.println(p);
+		return "main";
+	}
 }
+
+
+
+
+
+
+
+
+
 
 
 
