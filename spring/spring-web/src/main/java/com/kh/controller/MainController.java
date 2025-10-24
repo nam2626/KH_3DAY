@@ -10,4 +10,13 @@ public class MainController {
 	public String main() {
 		return "index";
 	}
+	
+	@GetMapping("/member/login/view")
+	public String loginView() {
+		return "login";
+	}
 }
+
+
+
+
