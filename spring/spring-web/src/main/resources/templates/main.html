@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>로그인 결과 페이지</h1>
+	<!-- 
+		Controller에서 저장한 내용을 쉽게 html에 출력하기 위해서
+		SpringEL과 타임리프 이용해서 출력
+	 -->
+	 <!-- request에 저장된 값 출력 -->
+	 <!-- 값을 문자열로 출력을 할때(태그 적용 X) -->
+	 <p>msg : [[${msg}]] </p>
+	 <p>msg : <span th:text="${msg}"></span></p>
+	 <!-- session에 저장된 값을 출력 -->
+	 <p>pwd : [[${session.pwd}]]</p>
+</body>
+</html>
+
+
+
+
+
+
