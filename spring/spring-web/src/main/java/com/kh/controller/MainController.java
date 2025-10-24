@@ -4,24 +4,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.kh.SpringWebApplication;
+import com.kh.vo.PersonVO;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
-	
+
 	@GetMapping("/")
 	public String main() {
 		return "index";
 	}
-	
+
 	@GetMapping("/member/login/view")
 	public String loginView() {
 		return "login";
 	}
-	
+
 	/*
 	 * @PostMapping("/member/login") public String login(HttpServletRequest
 	 * request,HttpSession session) { String userName =
@@ -34,29 +35,25 @@ public class MainController {
 	 * 
 	 * return "main"; }
 	 */
-	
+
 	@PostMapping("/member/login")
-	public String login(HttpSession session, HttpServletRequest request, 
-			@RequestParam(name = "username") String username, 
+	public String login(HttpSession session, HttpServletRequest request,
+			@RequestParam(name = "username") String username,
 			@RequestParam(name = "password") String password) {
-		
+
+//	public String login(HttpSession session, 
+//			HttpServletRequest request, 
+//			String username, String password) {
+
 		session.setAttribute("pwd", "pwd - " + password);
 		request.setAttribute("msg", "msg - " + username);
+
+		PersonVO p1 = new PersonVO("홍길동", 20);
+		System.out.println(p1);
 		
 		return "main";
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
