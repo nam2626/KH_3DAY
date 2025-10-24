@@ -3,8 +3,7 @@ package com.kh.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import com.kh.SpringWebApplication;
+
 import com.kh.vo.PersonVO;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,16 +33,15 @@ public class MainController {
 	 * session.setAttribute("pwd", "암호 : "+password);
 	 * 
 	 * return "main"; }
-	 */
+	 */ 
 
 	@PostMapping("/member/login")
-	public String login(HttpSession session, HttpServletRequest request,
-			@RequestParam(name = "username") String username,
-			@RequestParam(name = "password") String password) {
-
-//	public String login(HttpSession session, 
-//			HttpServletRequest request, 
-//			String username, String password) {
+//	public String login(HttpSession session, HttpServletRequest request,
+//			@RequestParam(name = "username") String username,
+//			@RequestParam(name = "password") String password) {
+	public String login(HttpSession session, 
+			HttpServletRequest request, 
+			String username, String password) {
 
 		session.setAttribute("pwd", "pwd - " + password);
 		request.setAttribute("msg", "msg - " + username);
