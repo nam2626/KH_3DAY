@@ -27,6 +27,10 @@ public class CarService {
 	public CarDTO selectCarForId(String id) {
 		return mapper.selectCarForId(id);
 	}
+
+	public int updateCar(CarDTO car) {
+		return mapper.updateCar(car);
+	}
 	
 	
 }

@@ -58,11 +58,29 @@ public class CarController {
 	public String update(CarDTO car) {
 		System.out.println("수정할 차량정보");
 		System.out.println(car);
-		
+		int count = service.updateCar(car);
+		System.out.println("수정 : " + count);
 		return "redirect:/";
 	}
 	
+	@GetMapping("/car/insert/view")
+	public String insertView() {
+		return "car_insert_view";
+	}
+	
+	@PostMapping("/car/insert")
+	public String insert(CarDTO car) {
+		//받아온 자동차 정보를 확인
+		
+		//서비스로 보내서 데이터베이스에 저장까지 되게끔 처리
+		
+		
+		return "redirect:/";
+	}
 }
+
+
+
 
 
 

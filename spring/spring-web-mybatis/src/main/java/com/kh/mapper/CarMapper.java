@@ -11,4 +11,5 @@ public interface CarMapper {
 	List<CarDTO> selectAllCar();
 	int deleteCar(String id);
 	CarDTO selectCarForId(String id);
+	int updateCar(CarDTO car);
 }
