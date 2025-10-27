@@ -32,6 +32,15 @@ public class CarController {
 		return view;
 	}
 	
+	@GetMapping("/car/delete")
+	public String delete(String id) {
+		System.out.println("삭제할 아이디 : " + id);
+		int count = service.deleteCar(id);
+		
+		System.out.println("삭제 : " + count);
+		return "redirect:/";
+	}
+	
 }
 
 

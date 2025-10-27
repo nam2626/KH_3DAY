@@ -18,9 +18,16 @@ public class CarService {
 	public List<CarDTO> selectAllCar() {
 		return mapper.selectAllCar();
 	}
+
+	public int deleteCar(String id) {
+		if(id.isEmpty()) return 0;
+		return mapper.deleteCar(id);
+	}
 	
 	
 }
+
+
 
 
 

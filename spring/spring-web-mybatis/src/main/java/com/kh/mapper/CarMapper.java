@@ -9,4 +9,5 @@ import com.kh.dto.CarDTO;
 @Mapper
 public interface CarMapper {
 	List<CarDTO> selectAllCar();
+	int deleteCar(String id);
 }

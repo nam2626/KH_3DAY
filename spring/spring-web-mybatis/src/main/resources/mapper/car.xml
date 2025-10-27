@@ -6,4 +6,7 @@
   <select id="selectAllCar" resultType="com.kh.dto.CarDTO">
   	select * from car
   </select>
+  <delete id="deleteCar">
+ 	delete from car where id like #{id}
+  </delete>
 </mapper>
