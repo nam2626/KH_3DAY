@@ -7,6 +7,37 @@
 <body>
 	<h1>자동차 정보 관리 시스템</h1>
 	<hr>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>모델명</th>
+				<th>출시년도</th>
+				<th>금액</th>
+				<th>제조사번호</th>
+				<th>비고</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="car : ${carList}">
+				<td>[[${car.id}]]</td>
+				<td>[[${car.cname}]]</td>
+				<td>[[${car.myear}]]</td>
+				<td>[[${car.price}]]</td>
+				<td>[[${car.mno}]]</td>
+				<td></td>
+			</tr>
+		</tbody>
 	
+	</table>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
