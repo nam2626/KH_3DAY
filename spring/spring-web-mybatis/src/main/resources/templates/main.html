@@ -25,7 +25,12 @@
 				<td>[[${car.myear}]]</td>
 				<td>[[${car.price}]]</td>
 				<td>[[${car.mno}]]</td>
-				<td></td>
+				<td>
+					<!-- /car/a101001?cname=A9 -->
+					<a th:href="@{/car/{id}(id=${car.id},cname=${car.cname})}">수정</a>
+					<!-- /car/delete?id=a101011 -->
+					<a th:href="@{/car/delete(id=${car.id})}">삭제</a>
+				</td>
 			</tr>
 		</tbody>
 	
