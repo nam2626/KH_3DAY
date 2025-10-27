@@ -9,4 +9,7 @@
   <delete id="deleteCar">
  	delete from car where id like #{id}
   </delete>
+  <select id="selectCarForId" resultType="car">
+  	select * from car where id like #{id}
+  </select>
 </mapper>

@@ -23,6 +23,10 @@ public class CarService {
 		if(id.isEmpty()) return 0;
 		return mapper.deleteCar(id);
 	}
+
+	public CarDTO selectCarForId(String id) {
+		return mapper.selectCarForId(id);
+	}
 	
 	
 }

@@ -47,7 +47,7 @@ public class CarController {
 		System.out.println("수정할 자동차 아이디 : " + id);
 		//id에 해당하는 자동차 정보 1건을 조회
 		CarDTO car = service.selectCarForId(id);
-		
+		System.out.println(car);
 		view.addObject("car", car);		
 		view.setViewName("car_update_view");
 		return view;

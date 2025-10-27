@@ -1,7 +1,10 @@
 package com.kh.dto;
 
+import org.apache.ibatis.type.Alias;
+
 import lombok.Data;
 
+@Alias("car")
 @Data
 public class CarDTO {
 	private String id;
