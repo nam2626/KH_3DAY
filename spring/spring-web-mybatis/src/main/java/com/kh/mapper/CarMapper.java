@@ -12,4 +12,5 @@ public interface CarMapper {
 	int deleteCar(String id);
 	CarDTO selectCarForId(String id);
 	int updateCar(CarDTO car);
+	int insertCar(CarDTO car);
 }

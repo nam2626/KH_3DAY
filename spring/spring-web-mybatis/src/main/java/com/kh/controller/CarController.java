@@ -6,10 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kh.SpringWebMybatisApplication;
 import com.kh.dto.CarDTO;
 import com.kh.service.CarService;
 
@@ -71,9 +69,10 @@ public class CarController {
 	@PostMapping("/car/insert")
 	public String insert(CarDTO car) {
 		//받아온 자동차 정보를 확인
-		
+		System.out.println("등록할 자동차 정보 : " + car);
 		//서비스로 보내서 데이터베이스에 저장까지 되게끔 처리
-		
+		int count = service.insertCar(car);
+		System.out.println("데이터 추가 결과 : " + count);
 		
 		return "redirect:/";
 	}

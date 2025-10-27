@@ -31,6 +31,10 @@ public class CarService {
 	public int updateCar(CarDTO car) {
 		return mapper.updateCar(car);
 	}
+
+	public int insertCar(CarDTO car) {
+		return mapper.insertCar(car);
+	}
 	
 	
 }

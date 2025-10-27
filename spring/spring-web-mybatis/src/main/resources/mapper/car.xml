@@ -17,6 +17,11 @@
 			cname = #{cname}, myear = #{myear}, price = #{price}, mno = #{mno}
 		where id like #{id}		
 	</update>
+	<insert id="insertCar">
+		insert into car(id,cname,myear,price,mno)
+		values(#{id},#{cname},#{myear},#{price},#{mno})		
+	</insert>
+	
 </mapper>
 
 
