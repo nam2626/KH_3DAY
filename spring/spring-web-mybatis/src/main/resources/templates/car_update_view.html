@@ -8,32 +8,38 @@
 <form action="/car/update" method="POST">
     <h3>차량 정보 입력</h3>
     <!-- 각 input 태그에 수정할 차량정보 기존값을 입력  -->
-    차랑 일렬번호 : <input type="text" name="id" >
+    <input type="hidden" name="id" th:value="${car.id}">
     
     <p>
         <label for="cname">차량 모델명:</label>
-        <input type="text" id="cname" name="cname" required>
+        <input type="text" id="cname" name="cname" th:value="${car.cname}" required>
     </p>
 
     <p>
         <label for="myear">생산 연도:</label>
-        <input type="number" id="myear" name="myear" min="1900" max="2100" required>
+        <input type="number" id="myear" name="myear" min="1900" max="2100" th:value="${car.myear}" required>
     </p>
 
     <p>
         <label for="price">가격 (원):</label>
-        <input type="number" id="price" name="price" min="0" required>
+        <input type="number" id="price" name="price" min="0" th:value="${car.price}" required>
     </p>
 
     <p>
         <label for="mno">제조사 번호:</label>
-        <input type="text" id="mno" name="mno" required>
+        <input type="text" id="mno" name="mno" th:value="${car.mno}" required>
     </p>
 
     <p>
         <input type="submit" value="정보 저장">
         <input type="reset" value="초기화">
+        <button type="button" onclick="history.back();">뒤로가기</button>
     </p>
 </form>
 </body>
 </html>
+
+
+
+
+
