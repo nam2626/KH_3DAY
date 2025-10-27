@@ -1,7 +1,10 @@
 package com.kh.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.kh.dto.CarDTO;
 import com.kh.mapper.CarMapper;
 
 @Service
@@ -11,6 +14,15 @@ public class CarService {
 	public CarService(CarMapper mapper) {
 		this.mapper = mapper;
 	}
+
+	public List<CarDTO> selectAllCar() {
+		return mapper.selectAllCar();
+	}
 	
 	
 }
+
+
+
+
+
