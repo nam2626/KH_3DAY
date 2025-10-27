@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.kh.SpringWebApplication;
+import com.kh.service.PersonService;
 import com.kh.vo.PersonVO;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,15 +12,16 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
-
-    private final SpringWebApplication springWebApplication;
-
-    MainController(SpringWebApplication springWebApplication) {
-        this.springWebApplication = springWebApplication;
-    }
+   
+	private final PersonService service;
+	
+	public MainController(PersonService service) {
+		this.service = service;
+	}
 
 	@GetMapping("/")
 	public String main() {
+		service.serviceTest();
 		return "index";
 	}
 
