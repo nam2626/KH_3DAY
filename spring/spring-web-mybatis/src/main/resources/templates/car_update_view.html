@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/car/update" method="POST">
+    <h3>차량 정보 입력</h3>
+    
+    <input type="text" name="id">
+    
+    <p>
+        <label for="cname">차량 모델명:</label>
+        <input type="text" id="cname" name="cname" required>
+    </p>
+
+    <p>
+        <label for="myear">생산 연도:</label>
+        <input type="number" id="myear" name="myear" min="1900" max="2100" required>
+    </p>
+
+    <p>
+        <label for="price">가격 (원):</label>
+        <input type="number" id="price" name="price" min="0" required>
+    </p>
+
+    <p>
+        <label for="mno">제조사 번호:</label>
+        <input type="text" id="mno" name="mno" required>
+    </p>
+
+    <p>
+        <input type="submit" value="정보 저장">
+        <input type="reset" value="초기화">
+    </p>
+</form>
+</body>
+</html>
