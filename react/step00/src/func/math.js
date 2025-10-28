@@ -4,3 +4,7 @@ export function plus(a, b) {
 }
 //뺄셈 결과 리턴하는 함수
 const minus = (a, b) => a - b;
+
+export { minus };
+// 한번에 export 가능
+// export { minus, plus };
