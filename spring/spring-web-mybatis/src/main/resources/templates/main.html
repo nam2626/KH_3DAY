@@ -42,19 +42,20 @@
 				//<tr><td>아이디</td>...<td>수정 / 삭제</td></tr>
 				let tag = '';
 				//반복문
-				data.list.forEach((item,idx) => {
-					console.log(item,idx);
-					tag += `<tr>`;
-					tag += `<td>${item.id}</td>`;
-					tag += `<td>${item.cname}</td>`;
-					tag += `<td>${item.myear}</td>`;
-					tag += `<td>${item.price}</td>`;
-					tag += `<td>${item.mno}</td>`;
-					tag += `<td><a href="/car/${item.id}">수정</a>
-							<a href="/car/delete?id=${item.id}">삭제</a>
-						</td>`;
-					tag += `</tr>`;
-				});
+				// data.list.forEach((item,idx) => {
+				// 	console.log(item,idx);
+				// 	tag += `<tr>`;
+				// 	tag += `<td>${item.id}</td>`;
+				// 	tag += `<td>${item.cname}</td>`;
+				// 	tag += `<td>${item.myear}</td>`;
+				// 	tag += `<td>${item.price}</td>`;
+				// 	tag += `<td>${item.mno}</td>`;
+				// 	tag += `<td><a href="/car/${item.id}">수정</a>
+				// 			<a href="/car/delete?id=${item.id}">삭제</a>
+				// 		</td>`;
+				// 	tag += `</tr>`;
+				// });
+				tag = data.list.reduce((acc,item) => `${acc}<tr><td>${item.id}</td><td>${item.cname}</td><td>${item.myear}</td><td>${item.price}</td><td>${item.mno}</td><td><a href="/car/${item.id}">수정</a><a href="/car/delete?id=${item.id}">삭제</a></td></tr>`,'');
 				console.log(tag);
 				document.querySelector("#content_list").innerHTML = tag;
 			}).catch(error => console.log(error))
