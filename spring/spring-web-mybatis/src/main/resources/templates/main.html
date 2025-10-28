@@ -3,6 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	window.onload = () =>{
+		//검색 클릭 했을 때 검색 항목 값, 검색어를 읽어와서 경고창(콘솔)으로 출력
+		document.querySelector("#btnSearch").onclick = () => {
+			const kind = document.querySelector("#kind").value;
+			const search = document.querySelector("#search").value;
+
+			alert(`${kind} / ${search}`);
+			//kind와 search를 queryString 작업 파라미터명=값&파라미터명=값
+
+			fetch(`/car/search`).
+			then(response => response.json()).
+			then(data => {
+				//원하는 곳에 데이터 출력
+				console.log(data);
+			}).
+			catch(error => console.log(error));
+		}
+	}
+</script>
 </head>
 <body>
 	<h1>자동차 정보 관리 시스템</h1>
