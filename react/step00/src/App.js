@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import { plus } from './func/math';
 
 function App() {
+  let sum = plus(100, 200);
   return (
     <div className="App">
-      <h2>제목 태그 ㅋㅋㅋㅋ</h2>
+      <h2>덧셈 결과 : {sum}</h2>
       <p>안뇽 ㅋㅋㅋㅋ</p>
     </div>
   );

@@ -1,5 +1,5 @@
 //덧셈 결과 리턴하는 함수
-function plus(a, b) {
+export function plus(a, b) {
   return a + b;
 }
 //뺄셈 결과 리턴하는 함수
