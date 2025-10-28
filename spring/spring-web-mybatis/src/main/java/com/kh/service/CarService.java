@@ -1,6 +1,8 @@
 package com.kh.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,13 @@ public class CarService {
 
 	public int insertCar(CarDTO car) {
 		return mapper.insertCar(car);
+	}
+
+	public List<CarDTO> searchCar(String kind, String search) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("kind", kind);
+		map.put("search", search);
+		return mapper.searchCar(map);
 	}
 	
 	

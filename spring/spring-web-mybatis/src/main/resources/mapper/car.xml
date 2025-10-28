@@ -21,7 +21,19 @@
 		insert into car(id,cname,myear,price,mno)
 		values(#{id},#{cname},#{myear},#{price},#{mno})		
 	</insert>
-	
+	<select id="searchCar" resultType="car">
+		select * from car
+		where 
+		${kind}
+		<choose>
+			<when test="kind.equals('id') or kind.equals('cname')">
+				like '%' || #{search} || '%'
+			</when>
+			<otherwise>
+				= #{search}
+			</otherwise>
+		</choose>
+	</select>
 </mapper>
 
 

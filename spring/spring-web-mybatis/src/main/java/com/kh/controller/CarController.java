@@ -1,11 +1,14 @@
 package com.kh.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.dto.CarDTO;
@@ -75,6 +78,29 @@ public class CarController {
 		System.out.println("데이터 추가 결과 : " + count);
 		
 		return "redirect:/";
+	}
+	
+	@ResponseBody
+	@GetMapping("/car/search")
+	public Map<String, Object> searchCar(String kind, String search) throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		try {
+			List<CarDTO> list = service.searchCar(kind,search);
+			if(list.size() == 0)
+				throw new Exception("검색 결과 없음, 검색어 확인해 주세요");
+			map.put("list", list);
+			map.put("count", list.size());
+			map.put("msg", "데이터 검색 성공");
+		
+		}catch (Exception e) {
+			//Exception 발생 했을때 메세지 설정
+			map.put("msg", e.getMessage());
+		}finally {
+			//전달할 항목 중 반드시 들어가야하는 내용 추가하는 영역
+			map.put("request",kind + " / " + search);
+		}
+		return map;
 	}
 }
 

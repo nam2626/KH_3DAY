@@ -12,8 +12,8 @@
 
 			alert(`${kind} / ${search}`);
 			//kind와 search를 queryString 작업 파라미터명=값&파라미터명=값
-
-			fetch(`/car/search`).
+			const param = `kind=${kind}&search=${search}`;
+			fetch(`/car/search?${param}`).
 			then(response => response.json()).
 			then(data => {
 				//원하는 곳에 데이터 출력
