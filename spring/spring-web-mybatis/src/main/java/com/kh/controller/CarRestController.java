@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kh.dto.CarDTO;
@@ -19,8 +20,12 @@ public class CarRestController {
 	}
 	
 	@PostMapping("/car/search/post")
-	public Map<String, Object> searchCar(String kind, String search) throws Exception{
+	public Map<String, Object> searchCar(@RequestBody Map<String, Object> body) throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
+		
+		String kind = body.get("kind").toString();
+		String search = body.get("search").toString();
+		
 		
 		try {
 			List<CarDTO> list = service.searchCar(kind,search);
