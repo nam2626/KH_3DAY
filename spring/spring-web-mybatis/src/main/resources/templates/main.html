@@ -37,13 +37,26 @@
 				body : JSON.stringify(sendData)
 			}).then(response => response.json())
 			.then(data => {
-				console.log(data);
+				console.log(data.list);
 				//태그 조립
 				//<tr><td>아이디</td>...<td>수정 / 삭제</td></tr>
 				let tag = '';
 				//반복문
-				
+				data.list.forEach((item,idx) => {
+					console.log(item,idx);
+					tag += `<tr>`;
+					tag += `<td>${item.id}</td>`;
+					tag += `<td>${item.cname}</td>`;
+					tag += `<td>${item.myear}</td>`;
+					tag += `<td>${item.price}</td>`;
+					tag += `<td>${item.mno}</td>`;
+					tag += `<td><a href="/car/${item.id}">수정</a>
+							<a href="/car/delete?id=${item.id}">삭제</a>
+						</td>`;
+					tag += `</tr>`;
+				});
 				console.log(tag);
+				document.querySelector("#content_list").innerHTML = tag;
 			}).catch(error => console.log(error))
 		}
 		
@@ -82,7 +95,7 @@
 				<th>비고</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody id="content_list">
 			<tr th:each="car : ${carList}">
 				<td>[[${car.id}]]</td>
 				<td>[[${car.cname}]]</td>
