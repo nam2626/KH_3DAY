@@ -11,6 +11,8 @@
 			const search = document.querySelector("#search").value;
 
 			alert(`${kind} / ${search}`);
+			/*
+			//GET 방식으로 보냈을때
 			//kind와 search를 queryString 작업 파라미터명=값&파라미터명=값
 			const param = `kind=${kind}&search=${search}`;
 			fetch(`/car/search?${param}`).
@@ -20,7 +22,25 @@
 				console.log(data);
 			}).
 			catch(error => console.log(error));
+			*/
+			//POST 방식
+			const sendData = {
+				kind : kind,
+				search : search
+			};
+			console.log(JSON.stringify(sendData));
+			fetch('/car/search/post',{
+				method:"POST",
+				headers:{
+					'Content-Type' : 'application/json'
+				},
+				body : JSON.stringify(sendData)
+			}).then(response => response.json())
+			.then(data => {
+				console.log(data);
+			}).catch(error => console.log(error))
 		}
+		
 	}
 </script>
 </head>
