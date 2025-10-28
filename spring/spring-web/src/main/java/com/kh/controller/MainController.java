@@ -72,6 +72,13 @@ public class MainController {
 		System.out.println(p);
 		return "main";
 	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		//세션 정보를 전부 무력화
+		session.invalidate();
+		return "main";
+	}
 }
 
 

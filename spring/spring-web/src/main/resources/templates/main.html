@@ -18,8 +18,18 @@
 	 <p>pwd : [[${session.pwd}]]</p>
 	 <!-- 세션에 저장된 값은 session 붙여줘야함 -->
 	 <p>pwd : [[${pwd}]]</p>
+	 
+	 <button id="btnLogout">로그아웃</button>
+	 <script>
+	 	document.querySelector("#btnLogout").onclick = () => {
+	 		location.href="/logout";
+	 	}
+	 </script>
 </body>
 </html>
+
+
+
 
 
 
