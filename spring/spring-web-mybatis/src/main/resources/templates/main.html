@@ -10,6 +10,21 @@
 		<a href="/car/insert/view">자동차 정보 추가</a>
 	</nav>
 	<hr>
+	<div>
+		<!-- 
+			검색 항목 : 모델명, ID, 출시년도  
+			검색창 구조
+			   select     input   button
+		    [검색항목 선택] [검색어] [검색버튼]
+		-->
+		<select id="kind">
+			<option value="cname">모델명</option>
+			<option value="id">ID</option>
+			<option value="myear">출시년도</option>
+		</select>
+		<input type="text" id="search">
+		<button type="button" id="btnSearch">검색</button>
+	</div>
 	<table>
 		<thead>
 			<tr>
