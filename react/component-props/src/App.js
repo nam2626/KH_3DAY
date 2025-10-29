@@ -1,4 +1,5 @@
 import ButtonOK from './components/ButtonOK';
+import ItemList from './components/ItemList';
 
 function App() {
   const profile = [
@@ -13,6 +14,8 @@ function App() {
     <div className="App">
       <h1>Component Props</h1>
       <ButtonOK attr1="속성1" data="데이터" var1="확인" />
+      <hr />
+      <ItemList profiles={profile} />
     </div>
   );
 }
