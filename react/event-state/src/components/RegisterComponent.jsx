@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 export default () => {
   const [name, setName] = useState('');
@@ -20,6 +20,7 @@ export default () => {
     alert(`${name} / ${email} / ${passwd}`);
     e.preventDefault();
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <p>
