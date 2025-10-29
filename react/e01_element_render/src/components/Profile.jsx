@@ -1,7 +1,7 @@
-export default () => {
+export default (props) => {
   const profile = {
     name: '김철수',
-    age: 30,
+    age: props.age,
     job: '대학원생',
     imgURL: '/profile.jpg',
     imgSize: 100,

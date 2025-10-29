@@ -14,7 +14,8 @@ function App() {
       <ButtonOK />
       <ButtonCancel />
       <hr />
-      <Profile />
+      <Profile age="20" />
+      <Profile age="50" />
     </div>
   );
 }
