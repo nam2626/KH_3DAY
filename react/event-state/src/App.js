@@ -6,6 +6,7 @@ import NumberList from './components/NumberList';
 import RegisterComponent from './components/RegisterComponent';
 import RefEx from './components/RefEx';
 import EffectEx1 from './components/EffectEx1';
+import EffectEx2 from './components/EffectEx2';
 
 function App() {
   console.log('App 렌더링');
@@ -19,8 +20,9 @@ function App() {
       <NumberList />
       <RegisterComponent />
       <h2>Ref 예제</h2>
-      <RefEx />*/}
-      <EffectEx1 />
+      <RefEx />
+      <EffectEx1 />*/}
+      <EffectEx2 />
     </div>
   );
 }
