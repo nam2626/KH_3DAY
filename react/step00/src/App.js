@@ -2,6 +2,7 @@ import './App.css';
 import { minus, plus } from './func/math';
 import mylog, { multi } from './func/log';
 import ExComponent from './jsx/ExComponent';
+import NoJSX from './jsx/NoJSX';
 
 function App() {
   let sum = plus(100, 200);
@@ -10,6 +11,7 @@ function App() {
   mylog('우리가 만들 로그함수');
   return (
     <div className="App">
+      <NoJSX />
       <h2>덧셈 결과 : {sum}</h2>
       <h2>뺄셈 결과 : {sub}</h2>
       <h2>곱셈 결과 : {mul}</h2>
