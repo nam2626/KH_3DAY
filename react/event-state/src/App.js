@@ -7,6 +7,7 @@ import RegisterComponent from './components/RegisterComponent';
 import RefEx from './components/RefEx';
 import EffectEx1 from './components/EffectEx1';
 import EffectEx2 from './components/EffectEx2';
+import ReducerEx from './components/ReducerEx';
 
 function App() {
   console.log('App 렌더링');
@@ -21,8 +22,9 @@ function App() {
       <RegisterComponent />
       <h2>Ref 예제</h2>
       <RefEx />
-      <EffectEx1 />*/}
-      <EffectEx2 />
+      <EffectEx1 />
+      <EffectEx2 />*/}
+      <ReducerEx />
     </div>
   );
 }
