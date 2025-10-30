@@ -12,14 +12,17 @@ export default () => {
   // count로 localStorage 값을 확인
   console.log(localStorage.getItem('count'));
 
+  //count가 증가했을때, 감소했을때마다 localStorage에 count 저장
   const addCount = () => {
     setCount((prev) => {
+      localStorage.setItem('count', prev + 1);
       return prev + 1;
     });
   };
 
   const minusCount = () => {
     setCount((prev) => {
+      localStorage.setItem('count', prev - 1);
       return prev - 1;
     });
   };
