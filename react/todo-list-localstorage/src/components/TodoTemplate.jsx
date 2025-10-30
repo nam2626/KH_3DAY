@@ -1,8 +1,8 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
 
-const list = [
+const defaultList = [
   { id: 1, text: '1번째 할일', done: false },
   { id: 2, text: '2번째 할일', done: false },
   { id: 3, text: '3번째 할일', done: false },
@@ -11,11 +11,23 @@ const list = [
 ];
 
 export default () => {
-  const [todoList, setTodoList] = useState([...list]);
-  const num = useRef(todoList.length + 1);
+  const [todoList, setTodoList] = useState(() => {
+    const list = localStorage.getItem('todoList');
+    if (list == null) return [...defaultList];
+    return JSON.parse(list); //json 문자열을 객체로 변환
+  });
+  const num = useRef(todoList[todoList.length - 1].id + 1);
+
+  useEffect(() => {
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+  }, [todoList]);
 
   const addTodo = (txt) => {
-    setTodoList([...todoList, { id: num.current++, text: txt, done: false }]);
+    //방법 1
+    const newList = [...todoList, { id: num.current++, text: txt, done: false }];
+    setTodoList(newList);
+    //localStorage에 업데이트
+    // localStorage.setItem('todoList', JSON.stringify(newList));
   };
 
   const deleteTodo = (id) => {
