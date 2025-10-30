@@ -14,58 +14,58 @@ const defaultList = [
 function reducer(state, action) {
   switch (action.type) {
     case 'ADD':
-      return {};
+      const n = state.id + 1;
+      return { list: [...state.list, { id: n, text: action.payload, done: false }], id: n };
     case 'DELETE':
-      return {};
+      return { ...state, list: state.list.filter((item) => item.id !== action.payload) };
     case 'UPDATE':
-      return {};
+      return {
+        ...state,
+        list: state.list.map((todo) => {
+          if (todo.id === action.payload) return { ...todo, done: !todo.done };
+          return todo;
+        }),
+      };
   }
   return state;
 }
+
 function readTodoList() {
-  const list = localStorage.getItem('todoList');
-  const id = localStorage.getItem('id');
-  if (list == null) return [...defaultList];
-  return { list: JSON.parse(list), id: id == null ? list.length + 1 : id };
+  let list = localStorage.getItem('todoList');
+  let id = localStorage.getItem('id');
+  if (list == null) list = [...defaultList];
+  else list = JSON.parse(list);
+  if (id == null) id = list.length;
+  else id = parseInt(id);
+  return { list: list, id: id };
 }
 
 export default () => {
   const [todoList, dispatch] = useReducer(reducer, readTodoList());
-  console.log(todoList);
-  // const [todoList, setTodoList] = useState(() => {
-  //   const list = localStorage.getItem('todoList');
-  //   if (list == null) return [...defaultList];
-  //   return JSON.parse(list); //json 문자열을 객체로 변환
-  // });
-  // const num = useRef(todoList[todoList.length - 1].id + 1);
+  useEffect(() => {
+    console.log(todoList);
+    localStorage.setItem('todoList', JSON.stringify(todoList.list));
+    localStorage.setItem('id', todoList.id);
+  }, [todoList]);
 
-  // const addTodo = (txt) => {
-  //   //방법 1
-  //   const newList = [...todoList, { id: num.current++, text: txt, done: false }];
-  //   setTodoList(newList);
-  //   //localStorage에 업데이트
-  //   // localStorage.setItem('todoList', JSON.stringify(newList));
-  // };
+  const addTodo = (txt) => {
+    dispatch({ type: 'ADD', payload: txt });
+  };
 
-  // const deleteTodo = (id) => {
-  //   setTodoList(todoList.filter((item) => item.id !== id));
-  // };
+  const deleteTodo = (id) => {
+    dispatch({ type: 'DELETE', payload: id });
+  };
 
-  // const updateTodo = (id) => {
-  //   setTodoList(
-  //     todoList.map((todo) => {
-  //       if (todo.id === id) return { ...todo, done: !todo.done };
-  //       return todo;
-  //     }),
-  //   );
-  // };
+  const updateTodo = (id) => {
+    dispatch({ type: 'UPDATE', payload: id });
+  };
 
   return (
     <>
       <h2>Todo List</h2>
-      {/* <TodoForm addTodo={addTodo} /> */}
+      <TodoForm addTodo={addTodo} />
       {/* Todo List 출력하는 컴포넌트  */}
-      {/* <TodoList todoList={todoList} deleteTodo={deleteTodo} updateTodo={updateTodo} /> */}
+      <TodoList todoList={todoList.list} deleteTodo={deleteTodo} updateTodo={updateTodo} />
     </>
   );
 };
