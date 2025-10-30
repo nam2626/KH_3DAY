@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,13 +14,21 @@ import com.kh.dto.CarDTO;
 import com.kh.service.CarService;
 
 @RestController
+@CrossOrigin(originPatterns = "*", origins = "*")
 public class CarRestController {
 	private CarService service;
 
 	public CarRestController(CarService service) {
 		this.service = service;
 	}
-	
+	@GetMapping("/car/list")
+	public Map<String, Object> allList(){
+		List<CarDTO> list = service.selectAllCar();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		return map;
+		
+	}
 	@PostMapping("/car/search/post")
 	public Map<String, Object> searchCar(@RequestBody Map<String, Object> body) throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
