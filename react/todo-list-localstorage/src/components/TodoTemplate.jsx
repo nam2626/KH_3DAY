@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import TodoList from './TodoList';
+import TodoForm from './TodoForm';
 
 const list = [
   { id: 1, text: '1번째 할일', done: false },
@@ -11,6 +12,11 @@ const list = [
 
 export default () => {
   const [todoList, setTodoList] = useState([...list]);
+  const num = useRef(todoList.length + 1);
+
+  const addTodo = (txt) => {
+    setTodoList([...todoList, { id: num.current++, text: txt, done: false }]);
+  };
 
   const deleteTodo = (id) => {
     setTodoList(todoList.filter((item) => item.id !== id));
@@ -28,7 +34,7 @@ export default () => {
   return (
     <>
       <h2>Todo List</h2>
-
+      <TodoForm addTodo={addTodo} />
       {/* Todo List 출력하는 컴포넌트  */}
       <TodoList todoList={todoList} deleteTodo={deleteTodo} updateTodo={updateTodo} />
     </>
