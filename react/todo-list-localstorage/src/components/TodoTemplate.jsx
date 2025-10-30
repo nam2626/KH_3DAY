@@ -16,7 +16,14 @@ export default () => {
     setTodoList(todoList.filter((item) => item.id !== id));
   };
 
-  const updateTodo = (id) => {};
+  const updateTodo = (id) => {
+    setTodoList(
+      todoList.map((todo) => {
+        if (todo.id === id) return { ...todo, done: !todo.done };
+        return todo;
+      }),
+    );
+  };
 
   return (
     <>
