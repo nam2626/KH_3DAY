@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import TodoTemplate from './components/TodoTemplate';
 
 function App() {
   return (
-    <div className="App">
+    <div className="m-3">
       <TodoTemplate />
     </div>
   );

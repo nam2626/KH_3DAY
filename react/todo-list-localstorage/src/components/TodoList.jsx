@@ -1,9 +1,9 @@
 import TodoItem from './TodoItem';
 
-export default ({ todoList }) => {
+export default ({ todoList, deleteTodo, updateTodo }) => {
   return (
     <div>
-      <table>
+      <table className="table table-hover table-striped">
         <thead>
           <tr>
             <th>ID</th>
@@ -14,7 +14,7 @@ export default ({ todoList }) => {
         </thead>
         <tbody>
           {todoList.map((item) => (
-            <TodoItem key={item.id} todo={item} />
+            <TodoItem key={item.id} todo={item} deleteTodo={deleteTodo} updateTodo={updateTodo} />
           ))}
         </tbody>
       </table>

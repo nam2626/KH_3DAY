@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import TodoList from './TodoList';
 
 const list = [
@@ -9,12 +10,20 @@ const list = [
 ];
 
 export default () => {
+  const [todoList, setTodoList] = useState([...list]);
+
+  const deleteTodo = (id) => {
+    setTodoList(todoList.filter((item) => item.id !== id));
+  };
+
+  const updateTodo = (id) => {};
+
   return (
     <>
       <h2>Todo List</h2>
 
       {/* Todo List 출력하는 컴포넌트  */}
-      <TodoList todoList={list} />
+      <TodoList todoList={todoList} deleteTodo={deleteTodo} updateTodo={updateTodo} />
     </>
   );
 };
