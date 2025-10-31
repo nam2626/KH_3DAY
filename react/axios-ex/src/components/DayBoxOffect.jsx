@@ -13,15 +13,17 @@ export default () => {
         key: API_KEY,
         targetDt: date.current.value.replaceAll('-', ''),
       },
+      responseType: 'document',
     });
     const data = response.data;
-    //XML 파싱해주는 객체
-    const parser = new DOMParser();
-    const xmlData = parser.parseFromString(data, 'text/xml');
-    console.log(xmlData);
+    console.log('파싱전', data);
+    // //XML 파싱해주는 객체
+    // const parser = new DOMParser();
+    // const xmlData = parser.parseFromString(data, 'text/xml');
+    // console.log(xmlData);
     setBoxOffice([]);
     const tmp = [];
-    xmlData.querySelectorAll('dailyBoxOffice').forEach((item) => {
+    data.querySelectorAll('dailyBoxOffice').forEach((item) => {
       const rank = item.querySelector('rank').textContent;
       const movieNm = item.querySelector('movieNm').textContent;
       const openDt = item.querySelector('openDt').textContent;
