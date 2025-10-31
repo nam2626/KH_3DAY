@@ -10,5 +10,7 @@ import com.kh.dto.MemberDTO;
 public interface MemberMapper {
 
 	List<MemberDTO> selectAllMember();
+	int insertMember(MemberDTO member);
+	int updateMember(MemberDTO member);
 
 }

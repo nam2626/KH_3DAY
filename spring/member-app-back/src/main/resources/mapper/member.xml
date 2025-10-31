@@ -3,9 +3,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kh.mapper.MemberMapper">
-<select id="selectAllMember" resultType="member">
-	select * from board_member
-</select>
+	<select id="selectAllMember" resultType="member">
+		select * from
+		board_member
+	</select>
+	<insert id="insertMember">
+		insert into board_member(id,passwd,username,nickname)
+		values(#{id},
+		standard_hash(#{passwd},'SHA512'),#{userName},#{nickName})
+	</insert>
+	<delete id="deleteMember">
+		delete from board_member where id = #{id}
+	</delete>
+	<update id="updateMember">
+		update board_member set passwd =
+		standard_hash(#{passwd},'SHA512'),
+		username=#{userName},nickname=#{nickName} where id = #{id}
+	</update>
 </mapper>
 
 

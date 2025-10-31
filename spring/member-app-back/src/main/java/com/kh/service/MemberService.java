@@ -18,6 +18,14 @@ public class MemberService {
 	public List<MemberDTO> selectAllMember() {
 		return mapper.selectAllMember();
 	}
+
+	public int insertMember(MemberDTO member) {
+		return mapper.insertMember(member);
+	}
+
+	public int updateMember(MemberDTO member) {
+		return mapper.updateMember(member);
+	}
 	
 	
 }
