@@ -9,5 +9,20 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class MemberDTO {
-
+	private String id;
+	private String passwd;
+	private String userName;
+	private String nickName;
+	
 }
+
+
+
+
+
+
+
+
+
+
+

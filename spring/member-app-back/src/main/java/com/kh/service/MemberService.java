@@ -1,7 +1,10 @@
 package com.kh.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.kh.dto.MemberDTO;
 import com.kh.mapper.MemberMapper;
 
 @Service
@@ -10,6 +13,10 @@ public class MemberService {
 
 	public MemberService(MemberMapper mapper) {
 		this.mapper = mapper;
+	}
+
+	public List<MemberDTO> selectAllMember() {
+		return mapper.selectAllMember();
 	}
 	
 	
