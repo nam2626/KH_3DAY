@@ -1,21 +1,18 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { getMemberList } from '../utils/memberAPI';
 export default () => {
   const [memberList, setMemberList] = useState([]);
-  const getMemberList = async () => {
-    try {
-      const res = await axios.get('http://localhost:9999/member/list');
-      console.log(res.data);
-      setMemberList(res.data.list);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const deleteMember = async () => {};
 
+  const fetchMemberList = async () => {
+    const data = await getMemberList();
+    setMemberList(data.list);
+  };
+
   useEffect(() => {
-    getMemberList();
+    fetchMemberList();
   }, []);
 
   return (
@@ -32,7 +29,7 @@ export default () => {
         <tbody>
           {memberList &&
             memberList.map((item) => (
-              <tr>
+              <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.userName}</td>
                 <td>{item.nickName}</td>

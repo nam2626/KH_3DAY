@@ -4,7 +4,7 @@ const API_BASE_URL = 'http://localhost:9999/member';
 //axios 기본 설정
 const memberAPI = axios.create({
   baseURL: API_BASE_URL,
-  withCredentials: true, //JWT 인증할 때 Refresh Token을 쿠키 전송을 위해 필수
+  // withCredentials: true, //JWT 인증할 때 Refresh Token을 쿠키 전송을 위해 필수
 });
 //요청 인터셉터 : 요청하기전 해야될 일을 설정하는 부분
 memberAPI.interceptors.request.use(
@@ -29,3 +29,9 @@ memberAPI.interceptors.response.use(
     return Promise.reject(error);
   },
 );
+
+export const getMemberList = async () => {
+  const res = await memberAPI.get('/list');
+  console.log('getMemberList', res.data);
+  return res.data;
+};
