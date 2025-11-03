@@ -51,3 +51,7 @@ export const updateMember = async (member) => {
   const res = await memberAPI.patch('/update', member);
   return res.data;
 };
+export const registerMember = async (member) => {
+  const res = await memberAPI.post('/insert', member);
+  return res.data;
+};
