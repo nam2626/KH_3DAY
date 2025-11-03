@@ -46,3 +46,8 @@ export const getMember = async (id) => {
   console.log('getMember', res.data);
   return res.data;
 };
+
+export const updateMember = async (member) => {
+  const res = await memberAPI.patch('/update', member);
+  return res.data;
+};

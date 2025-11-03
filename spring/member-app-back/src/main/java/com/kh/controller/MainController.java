@@ -78,11 +78,16 @@ public class MainController {
 	public Map<String, Object> updateMember(@RequestBody MemberDTO member){
 		Map<String, Object> map = new HashMap<String, Object>();
 		//회원정보 수정 성공 여부를 클라이언트에게 전달
+		try {
 		int count = service.updateMember(member);
 		
 		map.put("result", count);
 		map.put("msg", count == 0 ? "데이터 수정 실패" : "데이터 수정 성공");
 		System.out.println(member);
+		}catch (Exception e) {
+			map.put("result", 0);
+			map.put("msg", "DB 작업 오류");
+		}
 		return map;
 	}
 	
