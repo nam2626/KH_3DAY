@@ -44,6 +44,22 @@ public class MainController {
 		
 		return map; 
 	}
+	@GetMapping("/member/{id}")
+	public Map<String, Object> selectMember(@PathVariable String id){
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		//전체 회원정보 읽어와서 map에 저장
+		MemberDTO dto = service.selectMemberForId(id);		
+		
+		if(dto == null) {
+			map.put("msg", "회원정보 조회 작업에 실패 했습니다.");
+		}else {
+			map.put("member", dto);
+			map.put("msg", "회원정보 조회 작업을 성공했습니다.");
+		}
+		
+		return map; 
+	}
 	
 	//회원정보 추가
 	@PostMapping("/member/insert")

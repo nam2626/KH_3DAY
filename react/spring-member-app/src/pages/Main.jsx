@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { getMemberList } from '../utils/memberAPI';
+import { deleteMember, getMemberList } from '../utils/memberAPI';
+import { useNavigate } from 'react-router-dom';
 export default () => {
   const [memberList, setMemberList] = useState([]);
-
-  const deleteMember = async () => {};
-
+  const navigate = useNavigate();
   const fetchMemberList = async () => {
     const data = await getMemberList();
     setMemberList(data.list);
@@ -15,6 +14,18 @@ export default () => {
     fetchMemberList();
   }, []);
 
+  const handleMemberDelete = async (id) => {
+    try {
+      const res = await deleteMember(id);
+      alert(res.msg);
+      //fetchMemberList();
+      if (res.count != 0) {
+        setMemberList(memberList.filter((item) => item.id !== id));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="container-lg">
       <table className="table table-hover table-striped text-center">
@@ -34,8 +45,12 @@ export default () => {
                 <td>{item.userName}</td>
                 <td>{item.nickName}</td>
                 <td className="">
-                  <button className="btn  btn-primary me-2">수정</button>
-                  <button className="btn btn-danger">삭제</button>
+                  <button className="btn  btn-primary me-2" onClick={() => navigate(`/member/update/view/${item.id}`)}>
+                    수정
+                  </button>
+                  <button className="btn btn-danger" onClick={() => handleMemberDelete(item.id)}>
+                    삭제
+                  </button>
                 </td>
               </tr>
             ))}

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import Header from './components/Header';
 import Main from './pages/Main';
+import UpdateView from './pages/UpdateView';
 function App() {
   return (
     <div>
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/main" element={<Main />} />
+          <Route path="/member/update/view/:id" element={<UpdateView />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -35,3 +35,14 @@ export const getMemberList = async () => {
   console.log('getMemberList', res.data);
   return res.data;
 };
+
+export const deleteMember = async (id) => {
+  const res = await memberAPI.delete(`/delete/${id}`);
+  return res.data;
+};
+
+export const getMember = async (id) => {
+  const res = await memberAPI.get('/' + id);
+  console.log('getMember', res.data);
+  return res.data;
+};
