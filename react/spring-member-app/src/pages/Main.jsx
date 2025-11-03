@@ -18,10 +18,10 @@ export default () => {
 
   return (
     <div className="container-lg">
-      <table className="table table-hover table-striped">
+      <table className="table table-hover table-striped text-center">
         <thead>
           <tr>
-            <th className="">아이디</th>
+            <th>아이디</th>
             <th>이름</th>
             <th>닉네임</th>
             <th>비고</th>
@@ -34,8 +34,8 @@ export default () => {
                 <td>{item.id}</td>
                 <td>{item.userName}</td>
                 <td>{item.nickName}</td>
-                <td>
-                  <button className="btn  btn-primary">수정</button>
+                <td className="">
+                  <button className="btn  btn-primary me-2">수정</button>
                   <button className="btn btn-danger">삭제</button>
                 </td>
               </tr>
