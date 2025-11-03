@@ -12,6 +12,8 @@ export default () => {
     }
   };
 
+  const deleteMember = async () => {};
+
   useEffect(() => {
     getMemberList();
   }, []);
