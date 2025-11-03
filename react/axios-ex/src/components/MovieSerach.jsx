@@ -6,7 +6,7 @@ export default () => {
   const [movieList, setMovieList] = useState([]);
   const callSearchMovie = async () => {
     try {
-      const API_KEY = '88d7a2e6de4e692fd069399f03aae46c';
+      const API_KEY = process.env.REACT_APP_KOBIS_API_KEY;
       const response = await axios.get('http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json', {
         params: {
           key: API_KEY,
