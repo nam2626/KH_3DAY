@@ -20,7 +20,7 @@ export default () => {
     <div className="container-lg">
       <table className="table table-hover table-striped text-center">
         <thead>
-          <tr>
+          <tr className="fs-4">
             <th>아이디</th>
             <th>이름</th>
             <th>닉네임</th>

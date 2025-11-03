@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default () => {
   return (
-    <nav className="navbar navbar-expand-sm">
+    <nav className="navbar navbar-expand-sm fs-4">
       <div className="container-fluid">
         <ul className="navbar-nav d-flex">
           <li className="nav-item me-3">
