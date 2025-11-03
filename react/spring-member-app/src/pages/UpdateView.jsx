@@ -65,7 +65,9 @@ export default () => {
             <button className="btn btn-primary me-2" onClick={() => handleUpdateMember()}>
               수정하기
             </button>
-            <button className="btn btn-warning">취소하기</button>
+            <button className="btn btn-warning" onClick={() => navigate(-1)}>
+              취소하기
+            </button>
           </div>
         </div>
       )}
